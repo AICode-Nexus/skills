@@ -1,0 +1,280 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="128"
+  height="128"
+  viewBox="0 0 128 128"
+  fill="none"
+  role="img"
+  aria-labelledby="parrotTitle parrotDesc"
+  tabindex="0"
+>
+  <title id="parrotTitle">Animated parrot icon</title>
+  <desc id="parrotDesc">
+    A playful perched parrot icon with blinking eyes, swaying crest feathers, and a gently moving tail.
+  </desc>
+  <defs>
+    <linearGradient id="headGradient" x1="34" y1="26" x2="65" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#93E9FF"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="bodyGradient" x1="43" y1="38" x2="94" y2="97" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34D399"/>
+      <stop offset="1" stop-color="#16A34A"/>
+    </linearGradient>
+    <linearGradient id="wingGradient" x1="57" y1="54" x2="86" y2="89" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F766E"/>
+      <stop offset="1" stop-color="#14532D"/>
+    </linearGradient>
+    <linearGradient id="bellyGradient" x1="49" y1="56" x2="73" y2="91" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FEF08A"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="tailGradient" x1="69" y1="84" x2="99" y2="118" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22C55E"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+    <linearGradient id="branchGradient" x1="24" y1="92" x2="106" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A16207"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <radialGradient id="shadowGradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(66 102) rotate(90) scale(7 36)">
+      <stop stop-color="#0F172A" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#0F172A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <style>
+    .outline {
+      stroke: #0f172a;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .motion {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .parrot {
+      animation: bob 2.8s ease-in-out infinite;
+    }
+
+    .shadow {
+      animation: shadow-breathe 2.8s ease-in-out infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+
+    .crest {
+      transform-origin: 48px 28px;
+      animation: crest-sway 2.8s ease-in-out infinite;
+    }
+
+    .tail {
+      transform-origin: 71px 86px;
+      animation: tail-sway 2.8s ease-in-out infinite;
+    }
+
+    .blink {
+      transform-origin: 44px 39px;
+      animation: blink 6.4s ease-in-out infinite;
+    }
+
+    .wing {
+      transform-origin: 74px 69px;
+    }
+
+    svg:hover .wing,
+    svg:focus-visible .wing {
+      animation: wing-flutter 560ms ease-in-out 2;
+    }
+
+    svg:hover .parrot,
+    svg:focus-visible .parrot,
+    svg:hover .tail,
+    svg:focus-visible .tail,
+    svg:hover .crest,
+    svg:focus-visible .crest {
+      animation-duration: 1.7s;
+    }
+
+    @keyframes bob {
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-2px);
+      }
+    }
+
+    @keyframes shadow-breathe {
+      0%,
+      100% {
+        opacity: 0.24;
+        transform: scaleX(1);
+      }
+      50% {
+        opacity: 0.16;
+        transform: scaleX(0.93);
+      }
+    }
+
+    @keyframes crest-sway {
+      0%,
+      100% {
+        transform: rotate(-4deg) translateY(0px);
+      }
+      50% {
+        transform: rotate(4deg) translateY(-1px);
+      }
+    }
+
+    @keyframes tail-sway {
+      0%,
+      100% {
+        transform: rotate(5deg);
+      }
+      50% {
+        transform: rotate(-7deg);
+      }
+    }
+
+    @keyframes blink {
+      0%,
+      42%,
+      44%,
+      70%,
+      72%,
+      100% {
+        transform: scaleY(1);
+      }
+      43%,
+      71% {
+        transform: scaleY(0.12);
+      }
+    }
+
+    @keyframes wing-flutter {
+      0%,
+      100% {
+        transform: rotate(-14deg);
+      }
+      25% {
+        transform: rotate(-28deg);
+      }
+      50% {
+        transform: rotate(-6deg);
+      }
+      75% {
+        transform: rotate(-24deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .motion,
+      .wing,
+      svg:hover .wing,
+      svg:focus-visible .wing {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+
+  <ellipse class="shadow" cx="66" cy="102" rx="36" ry="7" fill="url(#shadowGradient)"/>
+
+  <g class="tail motion">
+    <path
+      class="outline"
+      d="M68 84C79 89 88 99 92 114C83 112 72 103 64 90Z"
+      fill="#34D399"
+    />
+    <path
+      class="outline"
+      d="M77 83C87 89 97 100 101 116C91 114 80 105 72 91Z"
+      fill="#22D3EE"
+      opacity="0.96"
+    />
+    <path class="outline" d="M76 88L84 106" stroke="#0F172A" stroke-width="2.2"/>
+  </g>
+
+  <path
+    class="outline"
+    d="M24 95C39 91 52 92 64 95C78 99 91 99 104 94"
+    stroke="url(#branchGradient)"
+  />
+  <path class="outline" d="M62 94L58 99" stroke="#0F172A"/>
+  <path class="outline" d="M69 94L66 99" stroke="#0F172A"/>
+  <path class="outline" d="M72 94L75 99" stroke="#0F172A"/>
+
+  <g class="parrot motion">
+    <g class="crest motion">
+      <path
+        class="outline"
+        d="M41 28C37 18 39 11 45 7C47 15 46 22 43 30Z"
+        fill="#FDE68A"
+      />
+      <path
+        class="outline"
+        d="M48 26C48 16 52 10 59 8C59 16 56 23 50 29Z"
+        fill="#FBBF24"
+      />
+      <path
+        class="outline"
+        d="M55 29C61 20 69 17 75 20C69 25 62 29 56 32Z"
+        fill="#FB7185"
+      />
+    </g>
+
+    <ellipse class="outline" cx="69" cy="67" rx="26" ry="29" fill="url(#bodyGradient)"/>
+    <ellipse
+      class="outline wing"
+      cx="74"
+      cy="69"
+      rx="14"
+      ry="19"
+      fill="url(#wingGradient)"
+      transform="rotate(-14 74 69)"
+    />
+    <ellipse class="outline" cx="60" cy="71" rx="13" ry="18" fill="url(#bellyGradient)"/>
+    <circle class="outline" cx="49" cy="42" r="18" fill="url(#headGradient)"/>
+
+    <path
+      class="outline"
+      d="M35 45C29 42 21 44 16 50C18 56 27 57 34 52C37 50 38 47 35 45Z"
+      fill="#FB923C"
+    />
+    <path
+      class="outline"
+      d="M31 50C26 50 21 54 20 58C24 60 30 58 34 53Z"
+      fill="#FDBA74"
+    />
+
+    <path class="outline" d="M40 34C43 32 47 32 50 34" stroke="#0F172A"/>
+    <ellipse
+      cx="43.7"
+      cy="38.8"
+      rx="7"
+      ry="7.5"
+      fill="#D7F3FF"
+    />
+
+    <g class="blink motion">
+      <ellipse
+        cx="43.9"
+        cy="39"
+        rx="3.9"
+        ry="4.4"
+        fill="#FFFFFF"
+        stroke="#0F172A"
+        stroke-width="2.2"
+      />
+      <circle cx="44.2" cy="39.5" r="1.7" fill="#0F172A"/>
+      <circle cx="44.8" cy="38.8" r="0.55" fill="#FFFFFF"/>
+    </g>
+
+    <path class="outline" d="M61 87L58 96" stroke="#0F172A"/>
+    <path class="outline" d="M69 87L66 96" stroke="#0F172A"/>
+  </g>
+</svg>

@@ -1,0 +1,247 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="128"
+  height="128"
+  viewBox="0 0 128 128"
+  fill="none"
+  role="img"
+  aria-labelledby="lobsterTitle lobsterDesc"
+  tabindex="0"
+>
+  <title id="lobsterTitle">Animated lobster icon</title>
+  <desc id="lobsterDesc">
+    A playful lobster icon with swaying antennae, a gentle bobbing motion, and claws that pinch on hover.
+  </desc>
+  <defs>
+    <linearGradient id="lobsterHeadGradient" x1="49" y1="21" x2="80" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDA4AF"/>
+      <stop offset="1" stop-color="#FB7185"/>
+    </linearGradient>
+    <linearGradient id="lobsterBodyGradient" x1="42" y1="38" x2="87" y2="92" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FB7185"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="lobsterClawGradient" x1="11" y1="31" x2="42" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCD34D"/>
+      <stop offset="1" stop-color="#FB7185"/>
+    </linearGradient>
+    <linearGradient id="lobsterTailGradient" x1="50" y1="82" x2="80" y2="115" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#FB7185"/>
+    </linearGradient>
+    <radialGradient id="lobsterShadow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(64 104) rotate(90) scale(7 34)">
+      <stop stop-color="#0F172A" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#0F172A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <style>
+    .outline {
+      stroke: #0f172a;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .motion {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .lobster {
+      animation: bob 2.9s ease-in-out infinite;
+    }
+
+    .shadow {
+      animation: shadow-breathe 2.9s ease-in-out infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+
+    .tail {
+      transform-origin: 64px 88px;
+      animation: tail-flick 2.9s ease-in-out infinite;
+    }
+
+    .antenna-left {
+      transform-origin: 59px 33px;
+      animation: antenna-left 3.5s ease-in-out infinite;
+    }
+
+    .antenna-right {
+      transform-origin: 69px 33px;
+      animation: antenna-right 3.5s ease-in-out infinite;
+    }
+
+    .claw-left,
+    .claw-right {
+      transform-box: fill-box;
+    }
+
+    .claw-left {
+      transform-origin: 34px 50px;
+    }
+
+    .claw-right {
+      transform-origin: 94px 50px;
+    }
+
+    svg:hover .claw-left,
+    svg:focus-visible .claw-left {
+      animation: claw-left-pinch 560ms ease-in-out 2;
+    }
+
+    svg:hover .claw-right,
+    svg:focus-visible .claw-right {
+      animation: claw-right-pinch 560ms ease-in-out 2;
+    }
+
+    svg:hover .antenna-left,
+    svg:focus-visible .antenna-left,
+    svg:hover .antenna-right,
+    svg:focus-visible .antenna-right {
+      animation-duration: 1.7s;
+    }
+
+    @keyframes bob {
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-2px);
+      }
+    }
+
+    @keyframes shadow-breathe {
+      0%,
+      100% {
+        opacity: 0.24;
+        transform: scaleX(1);
+      }
+      50% {
+        opacity: 0.14;
+        transform: scaleX(0.92);
+      }
+    }
+
+    @keyframes tail-flick {
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(4deg);
+      }
+    }
+
+    @keyframes antenna-left {
+      0%,
+      100% {
+        transform: rotate(-7deg);
+      }
+      50% {
+        transform: rotate(3deg);
+      }
+    }
+
+    @keyframes antenna-right {
+      0%,
+      100% {
+        transform: rotate(7deg);
+      }
+      50% {
+        transform: rotate(-3deg);
+      }
+    }
+
+    @keyframes claw-left-pinch {
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(-12deg) translate(-2px, -1px);
+      }
+    }
+
+    @keyframes claw-right-pinch {
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(12deg) translate(2px, -1px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .motion,
+      .claw-left,
+      .claw-right,
+      svg:hover .claw-left,
+      svg:hover .claw-right,
+      svg:focus-visible .claw-left,
+      svg:focus-visible .claw-right {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+
+  <ellipse class="shadow" cx="64" cy="104" rx="34" ry="7" fill="url(#lobsterShadow)"/>
+
+  <g class="lobster motion">
+    <g class="tail motion">
+      <path class="outline" d="M57 82C52 92 52 103 56 114C61 108 64 98 64 86Z" fill="url(#lobsterTailGradient)"/>
+      <path class="outline" d="M64 82C61 92 62 104 64 116C67 104 67 92 64 82Z" fill="#FCD34D"/>
+      <path class="outline" d="M71 82C76 92 76 103 72 114C67 108 64 98 64 86Z" fill="url(#lobsterTailGradient)"/>
+    </g>
+
+    <path class="outline" d="M45 77L35 88" stroke="#0F172A"/>
+    <path class="outline" d="M52 84L45 97" stroke="#0F172A"/>
+    <path class="outline" d="M59 88L55 101" stroke="#0F172A"/>
+    <path class="outline" d="M83 77L93 88" stroke="#0F172A"/>
+    <path class="outline" d="M76 84L83 97" stroke="#0F172A"/>
+    <path class="outline" d="M69 88L73 101" stroke="#0F172A"/>
+
+    <ellipse class="outline" cx="64" cy="73" rx="19" ry="20" fill="url(#lobsterBodyGradient)"/>
+    <ellipse class="outline" cx="64" cy="54" rx="21" ry="22" fill="url(#lobsterBodyGradient)"/>
+    <ellipse class="outline" cx="64" cy="37" rx="17" ry="15" fill="url(#lobsterHeadGradient)"/>
+
+    <path class="outline" d="M51 48C58 51 70 51 77 48" stroke="#0F172A"/>
+    <path class="outline" d="M49 65C56 68 72 68 79 65" stroke="#0F172A"/>
+    <path class="outline" d="M50 81C57 84 71 84 78 81" stroke="#0F172A"/>
+
+    <g class="antenna-left motion">
+      <path class="outline" d="M57 30C46 22 34 18 21 18" stroke="#0F172A"/>
+      <path class="outline" d="M57 33C47 31 37 34 27 41" stroke="#0F172A"/>
+    </g>
+    <g class="antenna-right motion">
+      <path class="outline" d="M71 30C82 22 94 18 107 18" stroke="#0F172A"/>
+      <path class="outline" d="M71 33C81 31 91 34 101 41" stroke="#0F172A"/>
+    </g>
+
+    <path class="outline" d="M56 31L54 22" stroke="#0F172A"/>
+    <path class="outline" d="M72 31L74 22" stroke="#0F172A"/>
+    <circle class="outline" cx="54" cy="20" r="5.5" fill="#FFFFFF"/>
+    <circle class="outline" cx="74" cy="20" r="5.5" fill="#FFFFFF"/>
+    <circle cx="54.4" cy="20.4" r="2.3" fill="#0F172A"/>
+    <circle cx="74.4" cy="20.4" r="2.3" fill="#0F172A"/>
+    <circle cx="55.2" cy="19.5" r="0.7" fill="#FFFFFF"/>
+    <circle cx="75.2" cy="19.5" r="0.7" fill="#FFFFFF"/>
+    <path class="outline" d="M58 41C62 43 66 43 70 41" stroke="#0F172A"/>
+
+    <path class="outline" d="M44 54C39 53 35 53 31 56" stroke="#0F172A"/>
+    <path class="outline" d="M84 54C89 53 93 53 97 56" stroke="#0F172A"/>
+
+    <g class="claw-left">
+      <path class="outline" d="M31 48C22 46 15 41 12 33C21 33 29 36 35 42C37 44 37 47 31 48Z" fill="url(#lobsterClawGradient)"/>
+      <path class="outline" d="M31 49C24 49 18 53 15 59C22 61 29 59 34 54Z" fill="#FDBA74"/>
+    </g>
+
+    <g class="claw-right">
+      <path class="outline" d="M97 48C106 46 113 41 116 33C107 33 99 36 93 42C91 44 91 47 97 48Z" fill="url(#lobsterClawGradient)"/>
+      <path class="outline" d="M97 49C104 49 110 53 113 59C106 61 99 59 94 54Z" fill="#FDBA74"/>
+    </g>
+  </g>
+</svg>

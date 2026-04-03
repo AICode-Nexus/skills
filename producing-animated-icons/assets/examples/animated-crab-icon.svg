@@ -1,0 +1,227 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="128"
+  height="128"
+  viewBox="0 0 128 128"
+  fill="none"
+  role="img"
+  aria-labelledby="crabTitle crabDesc"
+  tabindex="0"
+>
+  <title id="crabTitle">Animated crab icon</title>
+  <desc id="crabDesc">
+    A playful crab icon with swaying eye stalks, a soft bobbing shell, and claws that wave on hover.
+  </desc>
+  <defs>
+    <linearGradient id="crabShellGradient" x1="33" y1="29" x2="94" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FB7185"/>
+      <stop offset="1" stop-color="#EF4444"/>
+    </linearGradient>
+    <linearGradient id="crabClawGradient" x1="15" y1="37" x2="43" y2="67" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDBA74"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="crabBellyGradient" x1="50" y1="55" x2="75" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDE68A"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+    <radialGradient id="crabShadow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(64 102) rotate(90) scale(7 35)">
+      <stop stop-color="#0F172A" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#0F172A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <style>
+    .outline {
+      stroke: #0f172a;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .motion {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .crab {
+      animation: bob 2.7s ease-in-out infinite;
+    }
+
+    .shadow {
+      animation: shadow-breathe 2.7s ease-in-out infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+
+    .eyes {
+      transform-origin: 64px 36px;
+      animation: eye-sway 2.7s ease-in-out infinite;
+    }
+
+    .blink-left {
+      transform-origin: 50px 24px;
+      animation: blink 6.1s ease-in-out infinite;
+    }
+
+    .blink-right {
+      transform-origin: 78px 24px;
+      animation: blink 6.1s ease-in-out infinite;
+    }
+
+    .claw-left,
+    .claw-right {
+      transform-box: fill-box;
+    }
+
+    .claw-left {
+      transform-origin: 29px 57px;
+    }
+
+    .claw-right {
+      transform-origin: 99px 57px;
+    }
+
+    svg:hover .claw-left,
+    svg:focus-visible .claw-left {
+      animation: claw-wave-left 620ms ease-in-out 2;
+    }
+
+    svg:hover .claw-right,
+    svg:focus-visible .claw-right {
+      animation: claw-wave-right 620ms ease-in-out 2;
+    }
+
+    @keyframes bob {
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-2px);
+      }
+    }
+
+    @keyframes shadow-breathe {
+      0%,
+      100% {
+        opacity: 0.24;
+        transform: scaleX(1);
+      }
+      50% {
+        opacity: 0.15;
+        transform: scaleX(0.92);
+      }
+    }
+
+    @keyframes eye-sway {
+      0%,
+      100% {
+        transform: rotate(-3deg);
+      }
+      50% {
+        transform: rotate(3deg);
+      }
+    }
+
+    @keyframes blink {
+      0%,
+      38%,
+      40%,
+      74%,
+      76%,
+      100% {
+        transform: scaleY(1);
+      }
+      39%,
+      75% {
+        transform: scaleY(0.14);
+      }
+    }
+
+    @keyframes claw-wave-left {
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(-14deg) translate(-1px, -1px);
+      }
+    }
+
+    @keyframes claw-wave-right {
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(14deg) translate(1px, -1px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .motion,
+      .claw-left,
+      .claw-right,
+      svg:hover .claw-left,
+      svg:hover .claw-right,
+      svg:focus-visible .claw-left,
+      svg:focus-visible .claw-right {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+
+  <ellipse class="shadow" cx="64" cy="102" rx="35" ry="7" fill="url(#crabShadow)"/>
+
+  <g class="crab motion">
+    <path class="outline" d="M43 72L27 79" stroke="#0F172A"/>
+    <path class="outline" d="M44 81L29 91" stroke="#0F172A"/>
+    <path class="outline" d="M49 88L39 100" stroke="#0F172A"/>
+    <path class="outline" d="M85 72L101 79" stroke="#0F172A"/>
+    <path class="outline" d="M84 81L99 91" stroke="#0F172A"/>
+    <path class="outline" d="M79 88L89 100" stroke="#0F172A"/>
+
+    <path class="outline" d="M43 59C39 56 35 55 30 56" stroke="#0F172A"/>
+    <path class="outline" d="M85 59C89 56 93 55 98 56" stroke="#0F172A"/>
+
+    <g class="claw-left">
+      <path class="outline" d="M30 55C22 54 15 49 12 41C20 40 28 43 34 49C36 51 36 54 30 55Z" fill="url(#crabClawGradient)"/>
+      <path class="outline" d="M30 56C23 56 18 60 15 66C21 68 28 66 34 61Z" fill="#FCD34D"/>
+    </g>
+
+    <g class="claw-right">
+      <path class="outline" d="M98 55C106 54 113 49 116 41C108 40 100 43 94 49C92 51 92 54 98 55Z" fill="url(#crabClawGradient)"/>
+      <path class="outline" d="M98 56C105 56 110 60 113 66C107 68 100 66 94 61Z" fill="#FCD34D"/>
+    </g>
+
+    <path
+      class="outline"
+      d="M29 64C29 43 43 30 64 30C85 30 99 43 99 64C99 79 87 90 64 92C41 90 29 79 29 64Z"
+      fill="url(#crabShellGradient)"
+    />
+    <ellipse class="outline" cx="64" cy="69" rx="18" ry="16" fill="url(#crabBellyGradient)"/>
+    <path class="outline" d="M48 58C57 62 71 62 80 58" stroke="#0F172A"/>
+    <path class="outline" d="M46 73C54 77 74 77 82 73" stroke="#0F172A"/>
+
+    <g class="eyes motion">
+      <path class="outline" d="M52 35L50 25" stroke="#0F172A"/>
+      <path class="outline" d="M76 35L78 25" stroke="#0F172A"/>
+
+      <g class="blink-left motion">
+        <circle class="outline" cx="50" cy="24" r="6.5" fill="#FFFFFF"/>
+        <circle cx="50.5" cy="24.4" r="2.4" fill="#0F172A"/>
+        <circle cx="51.2" cy="23.6" r="0.7" fill="#FFFFFF"/>
+      </g>
+
+      <g class="blink-right motion">
+        <circle class="outline" cx="78" cy="24" r="6.5" fill="#FFFFFF"/>
+        <circle cx="78.5" cy="24.4" r="2.4" fill="#0F172A"/>
+        <circle cx="79.2" cy="23.6" r="0.7" fill="#FFFFFF"/>
+      </g>
+    </g>
+
+    <path class="outline" d="M57 82L53 95" stroke="#0F172A"/>
+    <path class="outline" d="M71 82L75 95" stroke="#0F172A"/>
+  </g>
+</svg>

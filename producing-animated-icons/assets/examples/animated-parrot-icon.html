@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Parrot Icon Preview</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f8fafc;
+        --panel: rgba(255, 255, 255, 0.8);
+        --panel-dark: rgba(15, 23, 42, 0.82);
+        --text: #0f172a;
+        --muted: #475569;
+        --border: rgba(15, 23, 42, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(110, 231, 183, 0.45), transparent 28%),
+          radial-gradient(circle at top right, rgba(96, 165, 250, 0.35), transparent 30%),
+          linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+        color: var(--text);
+      }
+
+      .page-shell {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 48px 24px 64px;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        line-height: 0.95;
+      }
+
+      p {
+        margin: 0;
+        max-width: 640px;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 32px;
+      }
+
+      .panel {
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 24px;
+        backdrop-filter: blur(18px);
+        box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+      }
+
+      .panel.light {
+        background: var(--panel);
+      }
+
+      .panel.dark {
+        background:
+          radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 30%),
+          linear-gradient(180deg, #0f172a 0%, #111827 100%);
+        color: #e2e8f0;
+      }
+
+      .label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 18px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      .light .label {
+        background: rgba(255, 255, 255, 0.88);
+      }
+
+      .dark .label {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .icon-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 12px;
+        min-height: 260px;
+      }
+
+      object {
+        display: block;
+      }
+
+      .size-64 {
+        width: 64px;
+        height: 64px;
+      }
+
+      .size-128 {
+        width: 128px;
+        height: 128px;
+      }
+
+      code {
+        display: block;
+        margin-top: 18px;
+        padding: 14px 16px;
+        border-radius: 18px;
+        overflow-x: auto;
+        font-size: 0.84rem;
+        line-height: 1.5;
+        background: rgba(15, 23, 42, 0.06);
+      }
+
+      .dark code {
+        background: rgba(255, 255, 255, 0.08);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <h1>Animated Parrot Icon</h1>
+      <p>
+        一个偏 playful 的鹦鹉动态图标。默认是轻微待机动效，鼠标悬停时翅膀会更明显地扇动；如果系统开启了 reduced motion，动画会自动停用。
+      </p>
+
+      <div class="grid">
+        <div class="panel light" role="group" aria-label="Light surface preview">
+          <div class="label">Light Surface</div>
+          <div class="icon-row">
+            <object class="size-64" data="./animated-parrot-icon.svg" type="image/svg+xml"></object>
+            <object class="size-128" data="./animated-parrot-icon.svg" type="image/svg+xml"></object>
+          </div>
+          <code>&lt;img src="./animated-parrot-icon.svg" alt="Animated parrot icon" /&gt;</code>
+        </div>
+
+        <div class="panel dark" role="group" aria-label="Dark surface preview">
+          <div class="label">Dark Surface</div>
+          <div class="icon-row">
+            <object class="size-64" data="./animated-parrot-icon.svg" type="image/svg+xml"></object>
+            <object class="size-128" data="./animated-parrot-icon.svg" type="image/svg+xml"></object>
+          </div>
+          <code>&lt;object data="./animated-parrot-icon.svg" type="image/svg+xml"&gt;&lt;/object&gt;</code>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
