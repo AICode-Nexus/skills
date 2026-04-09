@@ -62,9 +62,7 @@ npx . install react-monorepo-init --dry-run
 ### 1. 本地校验
 
 ```bash
-npm test
-npm run pack:check
-npm run publish:dry-run
+npm run release:check
 ```
 
 建议至少确认三件事：
@@ -76,11 +74,12 @@ npm run publish:dry-run
 ### 2. 登录并确认 npm 身份
 
 ```bash
-npm login
-npm whoami
+npm whoami --registry=https://registry.npmjs.org/
+npm login --registry=https://registry.npmjs.org/ --scope=@aicode-nexus
 ```
 
 如果这是第一次发布 `@aicode-nexus/*` scope，还需要确认当前 npm 账号对这个 scope 有发布权限。
+这一步很重要，因为有些机器默认 registry 会指向 `npmmirror`，但正式发布目标应该是 `registry.npmjs.org`。
 
 ### 3. 调整版本号
 
@@ -99,6 +98,7 @@ npm publish
 这个仓库已经在 `package.json` 里设置了：
 
 - `publishConfig.access=public`
+- `publishConfig.registry=https://registry.npmjs.org/`
 - `repository`
 - `homepage`
 - `bugs`
@@ -125,6 +125,7 @@ ls "$tmpdir/react-monorepo-init"
 - 发布成功后，README 里的 `npx @aicode-nexus/skills ...` 才是对外真实可用命令
 - 在发布之前，仓库内可用的是 `npx . ...`
 - 如果发布失败，先检查 npm scope 权限、包名占用情况，以及是否已经登录正确账号
+- 更完整的发布排障说明见 `RELEASING.md`
 
 ## 手动安装方式
 
