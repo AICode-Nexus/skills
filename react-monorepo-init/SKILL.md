@@ -83,6 +83,7 @@ description: Use when creating a new React web app, initializing a Vite frontend
 
 - 创建了哪些核心目录与包
 - 是否启用了 addon
+- `CHANGELOG.md` 与 `.changeset/` 的职责说明
 - 运行了哪些验证命令，哪些已通过
 - 如果还没装依赖或浏览器，明确写出下一步命令
 
@@ -106,6 +107,12 @@ description: Use when creating a new React web app, initializing a Vite frontend
 - `packages/config-typescript`
 - `packages/config-tailwind`
 - `packages/config-vitest`
+
+Changelog / Release Policy：
+- `CHANGELOG.md`：project-level summary，给人快速浏览项目级变化
+- `.changeset/`：release/version workflow，给 `changeset version` 和 `changeset publish` 使用
+- 如果改动会影响版本或发布说明：先写 `.changeset/`
+- 如果需要长期保留、便于团队浏览的项目级摘要：再更新 `CHANGELOG.md`
 
 已执行校验：
 - `pnpm install`：passed | skipped
