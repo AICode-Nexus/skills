@@ -1,0 +1,6 @@
+import { HttpResponse, http } from "msw";
+
+export const handlers = [
+  http.get("http://example.test/api/team", () => HttpResponse.json({ members: 6, name: "Platform" })),
+  http.get("http://example.test/api/boom", () => HttpResponse.json({ message: "Boom" }, { status: 500 })),
+];

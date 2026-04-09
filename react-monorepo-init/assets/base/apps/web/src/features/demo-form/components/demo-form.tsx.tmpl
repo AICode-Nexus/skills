@@ -1,0 +1,70 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+
+import { Button, Card, CardContent, CardHeader, CardTitle, Input } from "{{SCOPE}}/ui";
+
+import { firstFieldError } from "../../../forms/map-zod-error";
+import { demoFormSchema, type DemoFormValues } from "../schema";
+
+export function DemoForm() {
+  const [submitted, setSubmitted] = useState<DemoFormValues | null>(null);
+  const {
+    formState: { errors, isSubmitting },
+    handleSubmit,
+    register,
+  } = useForm<DemoFormValues>({
+    defaultValues: {
+      email: "",
+      name: "",
+      role: "engineering",
+    },
+    resolver: zodResolver(demoFormSchema),
+  });
+
+  const onSubmit = handleSubmit(async (values) => {
+    await Promise.resolve();
+    setSubmitted(values);
+  });
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Form Demo</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <form className="grid gap-4" onSubmit={onSubmit}>
+          <label className="grid gap-2 text-sm font-medium" htmlFor="name">
+            Name
+            <Input id="name" {...register("name")} />
+            {firstFieldError(errors, "name") ? <span className="text-sm text-red-600">{firstFieldError(errors, "name")}</span> : null}
+          </label>
+
+          <label className="grid gap-2 text-sm font-medium" htmlFor="email">
+            Email
+            <Input id="email" type="email" {...register("email")} />
+            {firstFieldError(errors, "email") ? <span className="text-sm text-red-600">{firstFieldError(errors, "email")}</span> : null}
+          </label>
+
+          <label className="grid gap-2 text-sm font-medium" htmlFor="role">
+            Role
+            <select className="h-10 rounded-md border border-border bg-white px-3 py-2 text-sm" id="role" {...register("role")}>
+              <option value="engineering">Engineering</option>
+              <option value="product">Product</option>
+              <option value="design">Design</option>
+            </select>
+            {firstFieldError(errors, "role") ? <span className="text-sm text-red-600">{firstFieldError(errors, "role")}</span> : null}
+          </label>
+
+          <Button disabled={isSubmitting} type="submit">
+            Save starter defaults
+          </Button>
+        </form>
+
+        {submitted ? (
+          <pre className="mt-4 overflow-x-auto rounded-md bg-muted p-4 text-xs">{JSON.stringify(submitted, null, 2)}</pre>
+        ) : null}
+      </CardContent>
+    </Card>
+  );
+}

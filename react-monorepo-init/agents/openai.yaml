@@ -1,0 +1,4 @@
+interface:
+  display_name: "React Monorepo Init"
+  short_description: "Bootstrap a standard React monorepo"
+  default_prompt: "Use $react-monorepo-init to create a standard React + Vite + Turborepo monorepo starter."

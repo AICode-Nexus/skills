@@ -1,0 +1,19 @@
+import { describe, expect, test } from "vitest";
+
+import { ApiError, createJsonClient } from "{{SCOPE}}/api-client";
+
+describe("createJsonClient", () => {
+  test("returns typed data for successful requests", async () => {
+    const client = createJsonClient({ baseUrl: "http://example.test/api" });
+
+    const response = await client.get<{ members: number; name: string }>("/team");
+
+    expect(response).toEqual({ members: 6, name: "Platform" });
+  });
+
+  test("throws ApiError for failing requests", async () => {
+    const client = createJsonClient({ baseUrl: "http://example.test/api" });
+
+    await expect(client.get("/boom")).rejects.toBeInstanceOf(ApiError);
+  });
+});

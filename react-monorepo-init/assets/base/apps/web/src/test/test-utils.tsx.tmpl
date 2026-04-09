@@ -1,0 +1,26 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { render } from "@testing-library/react";
+import type { PropsWithChildren, ReactElement } from "react";
+import { MemoryRouter } from "react-router-dom";
+
+function createTestQueryClient() {
+  return new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+      },
+    },
+  });
+}
+
+function Wrapper({ children }: PropsWithChildren) {
+  return (
+    <MemoryRouter>
+      <QueryClientProvider client={createTestQueryClient()}>{children}</QueryClientProvider>
+    </MemoryRouter>
+  );
+}
+
+export function renderWithProviders(element: ReactElement) {
+  return render(element, { wrapper: Wrapper });
+}

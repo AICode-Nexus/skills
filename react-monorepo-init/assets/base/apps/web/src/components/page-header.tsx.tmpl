@@ -1,0 +1,14 @@
+interface PageHeaderProps {
+  description: string;
+  title: string;
+}
+
+export function PageHeader({ description, title }: PageHeaderProps) {
+  return (
+    <header className="space-y-2">
+      <p className="text-sm font-medium text-brand">Starter Demo</p>
+      <h1 className="text-3xl font-semibold tracking-tight">{title}</h1>
+      <p className="max-w-2xl text-sm text-muted-foreground">{description}</p>
+    </header>
+  );
+}

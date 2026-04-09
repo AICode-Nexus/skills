@@ -1,0 +1,18 @@
+import { createBrowserRouter } from "react-router-dom";
+
+import { FormDemoPage } from "../routes/form-demo-page";
+import { HomePage } from "../routes/home-page";
+import { QueryDemoPage } from "../routes/query-demo-page";
+import { RootLayout } from "../routes/root-layout";
+
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "form", element: <FormDemoPage /> },
+      { path: "query", element: <QueryDemoPage /> },
+    ],
+  },
+]);

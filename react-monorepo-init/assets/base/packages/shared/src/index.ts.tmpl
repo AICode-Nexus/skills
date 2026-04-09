@@ -1,0 +1,22 @@
+export type QueryValue = boolean | number | string | null | undefined;
+
+export function buildUrl(path: string, query?: Record<string, QueryValue>): string {
+  if (!query) {
+    return path;
+  }
+
+  const url = new URL(path, path.startsWith("http") ? undefined : "http://placeholder.local");
+  Object.entries(query).forEach(([key, value]) => {
+    if (value === undefined || value === null || value === "") {
+      return;
+    }
+    url.searchParams.set(key, String(value));
+  });
+  return path.startsWith("http") ? url.toString() : `${url.pathname}${url.search}`;
+}
+
+export function sleep(milliseconds: number): Promise<void> {
+  return new Promise((resolve) => {
+    setTimeout(resolve, milliseconds);
+  });
+}

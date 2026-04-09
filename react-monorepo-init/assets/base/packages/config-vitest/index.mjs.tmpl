@@ -1,0 +1,18 @@
+import { defineConfig, mergeConfig } from "vitest/config";
+import tsconfigPaths from "vite-tsconfig-paths";
+
+export function createVitestConfig(overrides = {}) {
+  return mergeConfig(
+    defineConfig({
+      plugins: [tsconfigPaths()],
+      test: {
+        environment: "jsdom",
+        globals: true,
+        css: true,
+        include: ["src/**/*.{test,spec}.{ts,tsx}"],
+        setupFiles: ["./src/test/setup.ts"],
+      },
+    }),
+    overrides,
+  );
+}

@@ -1,0 +1,22 @@
+import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { describe, expect, test } from "vitest";
+
+import { renderWithProviders } from "../../../test/test-utils";
+import { DemoForm } from "./demo-form";
+
+describe("DemoForm", () => {
+  test("submits valid starter data", async () => {
+    const user = userEvent.setup();
+
+    renderWithProviders(<DemoForm />);
+
+    await user.type(screen.getByLabelText(/name/i), "Ada");
+    await user.type(screen.getByLabelText(/email/i), "ada@example.com");
+    await user.selectOptions(screen.getByLabelText(/role/i), "product");
+    await user.click(screen.getByRole("button", { name: /save starter defaults/i }));
+
+    expect(await screen.findByText(/ada@example.com/i)).toBeVisible();
+    expect(await screen.findByText(/"role": "product"/i)).toBeVisible();
+  });
+});

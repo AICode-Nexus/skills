@@ -1,0 +1,40 @@
+import { useQuery } from "@tanstack/react-query";
+
+import { useDocumentTitle } from "{{SCOPE}}/hooks";
+import { Card, CardContent, CardHeader, CardTitle } from "{{SCOPE}}/ui";
+
+import { PageHeader } from "../components/page-header";
+import { fetchStackSummary } from "../features/stack/api/fetch-stack-summary";
+
+export function QueryDemoPage() {
+  useDocumentTitle("Query Demo");
+  const query = useQuery({ queryKey: ["stack-summary"], queryFn: fetchStackSummary });
+
+  return (
+    <div className="grid gap-6">
+      <PageHeader
+        description="The default query setup already ships with a QueryClient, sensible defaults, and a feature-local async function."
+        title="Query Demo"
+      />
+
+      <Card>
+        <CardHeader>
+          <CardTitle>TanStack Query state</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {query.isLoading ? <p className="text-sm text-muted-foreground">Loading starter summary...</p> : null}
+          {query.isSuccess ? (
+            <ul className="grid gap-3">
+              {query.data.map((item) => (
+                <li className="rounded-md border border-border bg-muted px-4 py-3" key={item.title}>
+                  <p className="font-medium">{item.title}</p>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}

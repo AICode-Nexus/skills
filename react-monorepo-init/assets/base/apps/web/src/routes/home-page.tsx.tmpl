@@ -1,0 +1,80 @@
+import { ArrowRight, DatabaseZap, FormInput, Route } from "lucide-react";
+import { Link } from "react-router-dom";
+
+import { useDocumentTitle } from "{{SCOPE}}/hooks";
+import { Button, Card, CardContent, CardHeader, CardTitle } from "{{SCOPE}}/ui";
+
+import { PageHeader } from "../components/page-header";
+import { useCounterStore } from "../features/counter/stores/use-counter-store";
+
+const starterHighlights = [
+  {
+    title: "Routing shell",
+    description: "Nested routes are already wired through React Router.",
+    icon: Route,
+    href: "/query",
+  },
+  {
+    title: "Typed query demo",
+    description: "TanStack Query comes with a ready-to-run async example.",
+    icon: DatabaseZap,
+    href: "/query",
+  },
+  {
+    title: "Validated form demo",
+    description: "React Hook Form and Zod are pre-wired for feature forms.",
+    icon: FormInput,
+    href: "/form",
+  },
+];
+
+export function HomePage() {
+  useDocumentTitle("Home");
+  const count = useCounterStore((state) => state.count);
+  const increment = useCounterStore((state) => state.increment);
+  const reset = useCounterStore((state) => state.reset);
+
+  return (
+    <div className="grid gap-6">
+      <PageHeader
+        description="A ready-to-extend React monorepo with typed fetch, routing, local state, remote state, forms, and tests already in place."
+        title="React Monorepo Starter"
+      />
+
+      <div className="grid gap-4 md:grid-cols-3">
+        {starterHighlights.map(({ description, href, icon: Icon, title }) => (
+          <Card key={title}>
+            <CardHeader>
+              <div className="flex items-center gap-2 text-brand">
+                <Icon className="h-4 w-4" />
+                <CardTitle>{title}</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-sm text-muted-foreground">{description}</p>
+              <Button asChild size="sm" variant="secondary">
+                <Link to={href}>
+                  Open demo
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Zustand starter state</CardTitle>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-muted-foreground">Counter value: <span className="font-semibold text-foreground">{count}</span></p>
+          <div className="flex gap-3">
+            <Button onClick={increment} type="button">Increment</Button>
+            <Button onClick={reset} type="button" variant="secondary">Reset</Button>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}

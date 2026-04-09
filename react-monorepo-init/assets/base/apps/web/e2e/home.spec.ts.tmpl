@@ -1,0 +1,10 @@
+import { expect, test } from "@playwright/test";
+
+test("renders the starter shell and navigates to the form demo", async ({ page }) => {
+  await page.goto("/");
+
+  await expect(page.getByRole("heading", { name: /react monorepo starter/i, level: 1 })).toBeVisible();
+  await page.getByRole("link", { name: /form demo/i }).click();
+  await expect(page.getByRole("heading", { name: /form demo/i, level: 1 })).toBeVisible();
+  await expect(page.getByLabel(/name/i)).toBeVisible();
+});

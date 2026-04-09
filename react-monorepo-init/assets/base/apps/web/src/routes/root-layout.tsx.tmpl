@@ -1,0 +1,34 @@
+import { NavLink, Outlet } from "react-router-dom";
+
+function navClassName(active: boolean): string {
+  return active ? "text-brand" : "text-muted-foreground";
+}
+
+export function RootLayout() {
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 py-8">
+        <header className="mb-8 flex flex-col gap-4 border-b border-border pb-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-sm font-medium text-brand">React Monorepo Starter</p>
+            <h1 className="text-2xl font-semibold">{{PROJECT_TITLE}}</h1>
+          </div>
+          <nav className="flex gap-4 text-sm font-medium">
+            <NavLink className={({ isActive }) => navClassName(isActive)} to="/">
+              Home
+            </NavLink>
+            <NavLink className={({ isActive }) => navClassName(isActive)} to="/query">
+              Query Demo
+            </NavLink>
+            <NavLink className={({ isActive }) => navClassName(isActive)} to="/form">
+              Form Demo
+            </NavLink>
+          </nav>
+        </header>
+        <main className="flex-1">
+          <Outlet />
+        </main>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,18 @@
+import { useDocumentTitle } from "{{SCOPE}}/hooks";
+
+import { PageHeader } from "../components/page-header";
+import { DemoForm } from "../features/demo-form/components/demo-form";
+
+export function FormDemoPage() {
+  useDocumentTitle("Form Demo");
+
+  return (
+    <div className="grid gap-6">
+      <PageHeader
+        description="Use this feature folder as the default pattern for route-scoped forms, validation, and UI composition."
+        title="Form Demo"
+      />
+      <DemoForm />
+    </div>
+  );
+}

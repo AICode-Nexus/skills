@@ -1,0 +1,16 @@
+import { sleep } from "{{SCOPE}}/shared";
+
+export interface StackSummaryItem {
+  description: string;
+  title: string;
+}
+
+export async function fetchStackSummary(): Promise<StackSummaryItem[]> {
+  await sleep(120);
+  return [
+    { title: "Routing", description: "React Router drives the shell and nested routes." },
+    { title: "Remote state", description: "TanStack Query owns async caching and loading states." },
+    { title: "Local state", description: "Zustand handles lightweight client state." },
+    { title: "Validation", description: "React Hook Form and Zod own typed form handling." },
+  ];
+}

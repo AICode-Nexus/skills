@@ -1,0 +1,7 @@
+import { createJsonClient } from "{{SCOPE}}/api-client";
+
+import { appEnv } from "../env";
+
+export const webApiClient = createJsonClient({
+  baseUrl: appEnv.apiBaseUrl,
+});

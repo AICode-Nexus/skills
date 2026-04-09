@@ -1,0 +1,17 @@
+# Design
+
+## Architecture
+
+- `apps/web` owns the user-facing SPA shell.
+- `packages/ui` owns reusable UI primitives.
+- `packages/api-client` owns typed `fetch` helpers and error modeling.
+- `packages/shared` owns pure helpers and type-safe cross-package utilities.
+- `packages/hooks` owns reusable React hooks.
+- `packages/theme` owns design tokens and shared CSS variables.
+- `packages/config-*` own lint, TypeScript, Tailwind, and test configuration.
+
+## Extension Rules
+
+- Add new features under `apps/web/src/features/<feature-name>`.
+- Prefer adding new workspace packages only when code is reused by more than one surface.
+- Keep network contracts typed at the boundary by extending `packages/api-client`.

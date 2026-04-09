@@ -1,0 +1,12 @@
+import type { FieldErrors, FieldValues } from "react-hook-form";
+
+export function firstFieldError<TValues extends FieldValues>(
+  errors: FieldErrors<TValues>,
+  fieldName: keyof TValues,
+): string | undefined {
+  const field = errors[fieldName];
+  if (!field || typeof field !== "object" || !("message" in field)) {
+    return undefined;
+  }
+  return typeof field.message === "string" ? field.message : undefined;
+}

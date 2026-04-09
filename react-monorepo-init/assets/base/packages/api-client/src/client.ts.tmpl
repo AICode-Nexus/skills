@@ -1,0 +1,79 @@
+import { buildUrl, type QueryValue } from "{{SCOPE}}/shared";
+
+export class ApiError extends Error {
+  status: number;
+  payload: unknown;
+
+  constructor(status: number, payload: unknown) {
+    super(`Request failed with status ${status}`);
+    this.name = "ApiError";
+    this.status = status;
+    this.payload = payload;
+  }
+}
+
+export interface RequestOptions<TBody> {
+  body?: TBody;
+  headers?: HeadersInit;
+  method?: "DELETE" | "GET" | "PATCH" | "POST" | "PUT";
+  query?: Record<string, QueryValue>;
+  signal?: AbortSignal;
+}
+
+function normalizePath(baseUrl: string, path: string): string {
+  const normalizedBase = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${normalizedBase}${normalizedPath}`;
+}
+
+async function parsePayload(response: Response): Promise<unknown> {
+  const text = await response.text();
+  if (!text) {
+    return undefined;
+  }
+  try {
+    return JSON.parse(text);
+  } catch {
+    return text;
+  }
+}
+
+export function createJsonClient(config: { baseUrl: string; defaultHeaders?: HeadersInit }) {
+  const baseUrl = config.baseUrl;
+  const defaultHeaders = new Headers(config.defaultHeaders ?? {});
+
+  async function request<TResponse, TBody = never>(path: string, options: RequestOptions<TBody> = {}): Promise<TResponse> {
+    const headers = new Headers(defaultHeaders);
+    if (options.headers) {
+      new Headers(options.headers).forEach((value, key) => {
+        headers.set(key, value);
+      });
+    }
+    const body = options.body === undefined ? undefined : JSON.stringify(options.body);
+    if (body) {
+      headers.set("content-type", "application/json");
+    }
+
+    const response = await fetch(buildUrl(normalizePath(baseUrl, path), options.query), {
+      body,
+      headers,
+      method: options.method ?? "GET",
+      signal: options.signal,
+    });
+    const payload = await parsePayload(response);
+    if (!response.ok) {
+      throw new ApiError(response.status, payload);
+    }
+    return payload as TResponse;
+  }
+
+  return {
+    get<TResponse>(path: string, options?: Omit<RequestOptions<never>, "method">) {
+      return request<TResponse>(path, { ...options, method: "GET" });
+    },
+    post<TResponse, TBody>(path: string, body: TBody, options?: Omit<RequestOptions<TBody>, "body" | "method">) {
+      return request<TResponse, TBody>(path, { ...options, body, method: "POST" });
+    },
+    request,
+  };
+}

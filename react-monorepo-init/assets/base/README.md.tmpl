@@ -1,0 +1,35 @@
+# {{PROJECT_TITLE}}
+
+标准化的 React 19 + TypeScript 5.7 monorepo starter，默认包含 Vite、React Router、TanStack Query、Zustand、React Hook Form、Zod、Tailwind CSS v4、shadcn/ui 风格组件、Vitest、MSW、Playwright、pnpm workspace 与 Turborepo。
+
+## Quick Start
+
+```bash
+pnpm install
+pnpm dev
+```
+
+## Workspace Commands
+
+```bash
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm test:e2e
+pnpm build
+```
+
+## Repo Layout
+
+- `apps/web`: 默认 Web 应用
+- `packages/ui`: 复用 UI 组件
+- `packages/api-client`: typed `fetch` client
+- `packages/shared`: 纯函数与共享类型
+- `packages/hooks`: 通用 hooks
+- `packages/theme`: 主题变量与设计令牌
+- `packages/config-*`: 工程配置复用层
+
+## Changelog Policy
+
+- `CHANGELOG.md` 记录项目级摘要。
+- `.changeset/` 记录版本化变更与发布流。
