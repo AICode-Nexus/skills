@@ -14,6 +14,6 @@
 验证目标：
 
 - 根目录规范文件齐全
-- `CHANGELOG.md` 与 `.changeset/` 职责说明清晰
+- `CHANGELOG.md` 明确说明 Keep a Changelog 格式、项目级摘要职责，以及它和 `.changeset/` 的关系
 - `apps/web` 能运行、测试、构建
 - workspace 包边界清楚，不需要改根基础设施就能新增 feature

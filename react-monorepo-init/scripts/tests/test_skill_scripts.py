@@ -56,6 +56,13 @@ class SkillScriptsTest(unittest.TestCase):
             self.assertEqual(root_package["name"], "demo-app")
             app_package = json.loads((target / "apps/web/package.json").read_text())
             self.assertEqual(app_package["name"], "@acme/web")
+            changelog_text = (target / "CHANGELOG.md").read_text()
+            self.assertIn("Keep a Changelog", changelog_text)
+            self.assertIn("project-level summary", changelog_text)
+            self.assertIn(".changeset/", changelog_text)
+            readme_text = (target / "README.md").read_text()
+            self.assertIn("Changelog Policy", readme_text)
+            self.assertIn("会影响版本或发布说明的改动，先写 `.changeset/`。", readme_text)
 
     def test_bootstrap_rejects_non_empty_directory(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

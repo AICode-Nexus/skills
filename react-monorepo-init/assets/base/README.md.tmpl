@@ -31,5 +31,7 @@ pnpm build
 
 ## Changelog Policy
 
-- `CHANGELOG.md` 记录项目级摘要。
-- `.changeset/` 记录版本化变更与发布流。
+- `CHANGELOG.md` 记录面向人的项目级摘要，使用 Keep a Changelog 风格。
+- `.changeset/` 记录版本化变更文件，服务于 `changeset version` 与 `changeset publish`。
+- 会影响版本或发布说明的改动，先写 `.changeset/`。
+- 需要长期保留、方便团队快速浏览的项目级变化，再汇总到 `CHANGELOG.md`。

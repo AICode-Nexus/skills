@@ -54,6 +54,10 @@ def verify_structure(target_dir: Path) -> list[str]:
     changelog_text = (target_dir / "CHANGELOG.md").read_text(encoding="utf-8") if (target_dir / "CHANGELOG.md").exists() else ""
     if "Keep a Changelog" not in changelog_text:
         errors.append("CHANGELOG.md does not explain the changelog format")
+    if "project-level summary" not in changelog_text:
+        errors.append("CHANGELOG.md does not explain that it is the project-level summary")
+    if ".changeset/" not in changelog_text:
+        errors.append("CHANGELOG.md does not explain its relationship with .changeset/")
     return errors
 
 

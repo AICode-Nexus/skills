@@ -31,3 +31,4 @@
 - `packages/hooks`: 跨应用可复用 hooks
 - `packages/theme`: 设计令牌与主题 CSS
 - `packages/config-*`: 工程配置复用层
+- `.changeset/`: 发布流输入，不直接承担项目级 changelog 摘要职责
