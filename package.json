@@ -1,0 +1,33 @@
+{
+  "name": "@aicode-nexus/skills",
+  "version": "0.1.0",
+  "description": "Install Codex skills from the AICode Nexus skills hub.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "skills": "./bin/skills.js"
+  },
+  "files": [
+    "bin",
+    "manifest",
+    "README.md",
+    "LICENSE",
+    "codex-switch-snapshot",
+    "producing-animated-icons/SKILL.md",
+    "producing-animated-icons/references",
+    "producing-animated-icons/assets/examples",
+    "react-monorepo-init"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "codex",
+    "skills",
+    "cli",
+    "installer"
+  ]
+}

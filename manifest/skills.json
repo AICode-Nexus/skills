@@ -1,0 +1,19 @@
+{
+  "skills": [
+    {
+      "name": "codex-switch-snapshot",
+      "path": "codex-switch-snapshot",
+      "description": "Keep Codex local continuity across account switches, API key swaps, and local snapshot recovery."
+    },
+    {
+      "name": "producing-animated-icons",
+      "path": "producing-animated-icons",
+      "description": "Create animated icon assets and reference examples from curated motion icon sources."
+    },
+    {
+      "name": "react-monorepo-init",
+      "path": "react-monorepo-init",
+      "description": "Initialize a React 19 + TypeScript monorepo starter with Vite, Router, Query, Zustand, Tailwind v4, and testing defaults."
+    }
+  ]
+}

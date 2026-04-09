@@ -1,0 +1,6 @@
+.DS_Store
+node_modules/
+coverage/
+*.tgz
+react-monorepo-init/scripts/__pycache__/
+react-monorepo-init/scripts/tests/__pycache__/

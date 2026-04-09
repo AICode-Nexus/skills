@@ -2,9 +2,62 @@
 
 个人专业的 skills hub。约定是“一个 skill 一个文件夹”，每个 skill 至少包含一个 `SKILL.md`。
 
-## 安装方式
+## 推荐安装方式
 
-这个仓库里的 skill 默认不会自动安装到 Codex。本地一般有两种用法：
+这个仓库现在已经内置了 npm CLI 安装器。发布到 npm 后，用户可以直接用 `npx` 安装 skill 到 `~/.codex/skills`。
+
+### 1. 列出可安装 skill
+
+```bash
+npx @aicode-nexus/skills list
+```
+
+### 2. 安装单个 skill
+
+```bash
+npx @aicode-nexus/skills install react-monorepo-init
+```
+
+### 3. 一次安装多个 skill
+
+```bash
+npx @aicode-nexus/skills install react-monorepo-init codex-switch-snapshot
+```
+
+### 4. 安装全部 skill
+
+```bash
+npx @aicode-nexus/skills install --all
+```
+
+### 常用参数
+
+```bash
+npx @aicode-nexus/skills install react-monorepo-init --dest ~/.codex/skills
+npx @aicode-nexus/skills install react-monorepo-init --force
+npx @aicode-nexus/skills install react-monorepo-init --dry-run
+```
+
+默认行为：
+
+- 默认目标目录：`~/.codex/skills`
+- 默认不覆盖已有目录
+- 传 `--force` 才会覆盖
+- 传 `--dry-run` 只打印将执行的安装动作
+- 安装完成后应重启 Codex
+
+### 本地开发验证
+
+在这个仓库根目录里，可以直接用下面的方式验证 CLI：
+
+```bash
+npx . list
+npx . install react-monorepo-init --dry-run
+```
+
+## 手动安装方式
+
+如果 npm 包还没有发布，或者你想直接从仓库本地安装，也可以继续使用下面这些方式。
 
 ### 1. 手动安装单个 skill
 
@@ -63,7 +116,19 @@ ln -s /path/to/skills-repo/codex-switch-snapshot ~/.codex/skills/codex-switch-sn
 ````md
 ### 安装 `<skill-name>`
 
-复制安装：
+推荐安装：
+
+```bash
+npx @aicode-nexus/skills install <skill-name>
+```
+
+多个一起安装：
+
+```bash
+npx @aicode-nexus/skills install <skill-name> <another-skill-name>
+```
+
+本地复制安装：
 
 ```bash
 mkdir -p ~/.codex/skills
@@ -87,14 +152,14 @@ ln -s /path/to/skills-repo/<skill-name> ~/.codex/skills/<skill-name>
 
 - 适合场景：`<一句话说明这个 skill 解决什么问题>`
 - 安装后：重启 Codex 以识别新 skill
-- 如果要一次安装多个 skill：把多个目录一起复制，或在 `skill-installer` 请求里一次写多个名字
+- 如果还没发布 npm 包：退回到复制安装、符号链接或 `skill-installer`
 ````
 
 推荐约定：
 
 - skill 名称统一使用目录名
-- 安装命令优先展示复制版，再展示符号链接版
-- 对外发布时优先给复制安装和 `skill-installer` 两种方式
+- 安装命令优先展示 `npx` 版，再展示复制版
+- 对外发布时优先给 `npx` 和复制安装两种方式
 - 不要在模板里写死本机绝对路径，统一使用 `/path/to/skills-repo/<skill-name>`
 
 ## Skills
