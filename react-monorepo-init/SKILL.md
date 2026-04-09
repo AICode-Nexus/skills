@@ -139,3 +139,45 @@ Changelog / Release Policy：
 - `用 $react-monorepo-init 在 ~/work/demo-web 创建一个标准 React monorepo，项目名叫 demo-web，scope 用 @acme，先不开 addons。`
 - `用 $react-monorepo-init 在 ~/work/demo-web 创建项目，项目名 demo-web，scope @acme，开启 ci,pwa,i18n。`
 - `Use $react-monorepo-init to create a standard React monorepo in ~/work/demo-web with project name demo-web, scope @acme, and no addons.`
+
+## Example Output
+
+调用完成后，尽量给出像下面这样稳定、可扫描的总结：
+
+```md
+已在 `~/work/demo-web` 初始化 `demo-web`。
+
+- Scope: `@acme`
+- Addons: `ci,pwa,i18n`
+- Base strategy: `create-vite`
+
+核心产物：
+- `apps/web`
+- `packages/ui`
+- `packages/api-client`
+- `packages/shared`
+- `packages/hooks`
+- `packages/theme`
+- `packages/config-eslint`
+- `packages/config-typescript`
+- `packages/config-tailwind`
+- `packages/config-vitest`
+
+Changelog / Release Policy：
+- `CHANGELOG.md`：project-level summary，给人快速浏览项目级变化
+- `.changeset/`：release/version workflow，给 `changeset version` 和 `changeset publish` 使用
+- 会影响版本或发布说明的改动：先写 `.changeset/`
+- 需要长期保留、便于团队浏览的项目级摘要：再更新 `CHANGELOG.md`
+
+已执行校验：
+- `pnpm install`：passed
+- `python scripts/verify_scaffold.py --target-dir ~/work/demo-web`：passed
+- `pnpm lint`：passed
+- `pnpm typecheck`：passed
+- `pnpm test`：passed
+- `pnpm --filter @acme/web test:e2e`：passed
+
+后续动作：
+- 运行 `pnpm dev` 启动默认 Web 应用
+- 如果后续改动涉及版本发布，新增对应 `.changeset/*.md`
+```
