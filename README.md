@@ -289,15 +289,15 @@ This package is published to npm and can be used directly with `npx @aicode-nexu
 Recommended GitHub release flow:
 
 1. Add the repository secret `NPM_TOKEN`
-2. Push your code and tag
-3. Publish a GitHub Release from that tag
+2. Run a GitHub release helper such as `npm run release:github:patch`
+3. The helper bumps the version, pushes the tag, and creates a GitHub Release
 4. GitHub Actions runs tests and publishes to npm automatically
 
 推荐的 GitHub 发版流程：
 
 1. 在仓库里配置 `NPM_TOKEN` secret
-2. 推送代码和 tag
-3. 基于该 tag 发布 GitHub Release
+2. 运行例如 `npm run release:github:patch` 这样的 GitHub 发版命令
+3. 这个命令会自动升级版本、推送 tag，并创建 GitHub Release
 4. GitHub Actions 自动跑测试并发布到 npm
 
 This repository also includes a manual GitHub Actions fallback:
@@ -311,6 +311,56 @@ This repository also includes a manual GitHub Actions fallback:
 - workflow：`.github/workflows/release.yml`
 - 触发方式：`workflow_dispatch`
 - 输入：例如 `v0.1.1` 这样的 tag
+
+Recommended GitHub release shortcuts:
+
+```bash
+npm run release:github:patch
+npm run release:github:minor
+npm run release:github:major
+```
+
+Safe preview:
+
+```bash
+npm run release:github:patch:dry-run
+```
+
+The GitHub release helper does the following:
+
+- verifies the git worktree is clean
+- verifies `gh auth status`
+- runs `npm test`
+- runs `npm run publish:dry-run`
+- bumps the version with `npm version`
+- pushes the current branch and tags
+- creates a GitHub Release with `gh release create`
+- lets GitHub Actions publish to npm
+
+推荐的 GitHub 发版快捷命令：
+
+```bash
+npm run release:github:patch
+npm run release:github:minor
+npm run release:github:major
+```
+
+安全预演：
+
+```bash
+npm run release:github:patch:dry-run
+```
+
+这个 GitHub 发版脚本会依次执行：
+
+- 检查 git 工作区是否干净
+- 检查 `gh auth status`
+- 运行 `npm test`
+- 运行 `npm run publish:dry-run`
+- 用 `npm version` 升级版本
+- 推送当前分支和 tags
+- 用 `gh release create` 创建 GitHub Release
+- 然后交给 GitHub Actions 发布 npm
 
 Recommended local release shortcuts:
 

@@ -39,7 +39,11 @@
     "release:patch": "node scripts/release.mjs patch",
     "release:minor": "node scripts/release.mjs minor",
     "release:major": "node scripts/release.mjs major",
-    "release:patch:dry-run": "node scripts/release.mjs patch --dry-run"
+    "release:patch:dry-run": "node scripts/release.mjs patch --dry-run",
+    "release:github:patch": "node scripts/release-github.mjs patch",
+    "release:github:minor": "node scripts/release-github.mjs minor",
+    "release:github:major": "node scripts/release-github.mjs major",
+    "release:github:patch:dry-run": "node scripts/release-github.mjs patch --dry-run"
   },
   "engines": {
     "node": ">=20"

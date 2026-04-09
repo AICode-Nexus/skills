@@ -45,13 +45,37 @@ npx @aicode-nexus/skills install react-monorepo-init
 推荐流程：
 
 1. 推送代码到 `main`
-2. 创建并推送版本 tag，例如 `v0.1.2`
-3. 在 GitHub 上基于该 tag 发布 Release
+2. 运行：
+
+```bash
+npm run release:github:patch
+```
+
+3. 这个脚本会自动：
+   - 运行 `gh auth status`
+   - 执行 `npm test`
+   - 执行 `npm run publish:dry-run`
+   - 升级版本号
+   - 推送分支和 tag
+   - 创建 GitHub Release
 4. GitHub Actions 自动执行：
    - `npm test`
    - `npm run publish:dry-run`
    - 校验 tag 与 `package.json` 版本一致
    - `npm publish --provenance`
+
+也可以按需选择：
+
+```bash
+npm run release:github:minor
+npm run release:github:major
+```
+
+如果你想先看将执行什么：
+
+```bash
+npm run release:github:patch:dry-run
+```
 
 如果需要补发，也可以在 GitHub Actions 页面手动触发 `Release` workflow，并传入例如 `v0.1.2` 的 tag。
 
