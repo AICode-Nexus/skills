@@ -286,7 +286,87 @@ This package is published to npm and can be used directly with `npx @aicode-nexu
 
 这个包已经发布到 npm，可以直接通过 `npx @aicode-nexus/skills ...` 使用。
 
-For follow-up releases:
+Recommended GitHub release flow:
+
+1. Add the repository secret `NPM_TOKEN`
+2. Push your code and tag
+3. Publish a GitHub Release from that tag
+4. GitHub Actions runs tests and publishes to npm automatically
+
+推荐的 GitHub 发版流程：
+
+1. 在仓库里配置 `NPM_TOKEN` secret
+2. 推送代码和 tag
+3. 基于该 tag 发布 GitHub Release
+4. GitHub Actions 自动跑测试并发布到 npm
+
+This repository also includes a manual GitHub Actions fallback:
+
+- workflow: `.github/workflows/release.yml`
+- trigger: `workflow_dispatch`
+- input: a tag such as `v0.1.1`
+
+这个仓库同时保留了一个手动补发入口：
+
+- workflow：`.github/workflows/release.yml`
+- 触发方式：`workflow_dispatch`
+- 输入：例如 `v0.1.1` 这样的 tag
+
+Recommended local release shortcuts:
+
+```bash
+npm run release:patch
+npm run release:minor
+npm run release:major
+```
+
+Safe preview:
+
+```bash
+npm run release:patch:dry-run
+```
+
+The release script does the following:
+
+- checks that the git worktree is clean
+- runs `npm test`
+- runs `npm run publish:dry-run`
+- bumps the version with `npm version`
+- publishes to npm
+- pushes the current branch and tags to `origin`
+
+推荐的本地发版入口：
+
+```bash
+npm run release:patch
+npm run release:minor
+npm run release:major
+```
+
+安全预演：
+
+```bash
+npm run release:patch:dry-run
+```
+
+这个发布脚本会依次执行：
+
+- 检查 git 工作区是否干净
+- 运行 `npm test`
+- 运行 `npm run publish:dry-run`
+- 用 `npm version` 升级版本
+- 发布到 npm
+- 把当前分支和 tags 一起推到 `origin`
+
+For follow-up releases without the shortcut, the manual flow is:
+
+```bash
+npm run release:check
+npm version patch
+npm publish
+```
+
+如果你不用快捷脚本，手动流程仍然是：
 
 ```bash
 npm run release:check

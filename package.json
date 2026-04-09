@@ -35,7 +35,11 @@
     "test": "node --test tests/*.test.mjs",
     "pack:check": "npm pack --json",
     "publish:dry-run": "npm publish --dry-run",
-    "release:check": "npm test && npm run pack:check && npm run publish:dry-run"
+    "release:check": "npm test && npm run pack:check && npm run publish:dry-run",
+    "release:patch": "node scripts/release.mjs patch",
+    "release:minor": "node scripts/release.mjs minor",
+    "release:major": "node scripts/release.mjs major",
+    "release:patch:dry-run": "node scripts/release.mjs patch --dry-run"
   },
   "engines": {
     "node": ">=20"
