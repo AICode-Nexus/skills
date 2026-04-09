@@ -56,6 +56,47 @@ ln -s /path/to/skills-repo/codex-switch-snapshot ~/.codex/skills/codex-switch-sn
 - 给别人分发稳定版本：优先用复制或 `skill-installer`
 - 安装后如果看不到新 skill：先重启 Codex
 
+## INSTALL SKILLS 模板
+
+以后这个仓库新增 skill，建议在介绍或发布说明里复用下面这段，统一用户安装路径和表达方式。
+
+````md
+### 安装 `<skill-name>`
+
+复制安装：
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R <skill-name> ~/.codex/skills/
+```
+
+开发联动安装：
+
+```bash
+mkdir -p ~/.codex/skills
+ln -s /path/to/skills-repo/<skill-name> ~/.codex/skills/<skill-name>
+```
+
+用 `skill-installer` 安装：
+
+```text
+用 $skill-installer 从 GitHub 仓库 AICode-Nexus/skills 安装 <skill-name> 到我的 Codex skills 目录。
+```
+
+说明：
+
+- 适合场景：`<一句话说明这个 skill 解决什么问题>`
+- 安装后：重启 Codex 以识别新 skill
+- 如果要一次安装多个 skill：把多个目录一起复制，或在 `skill-installer` 请求里一次写多个名字
+````
+
+推荐约定：
+
+- skill 名称统一使用目录名
+- 安装命令优先展示复制版，再展示符号链接版
+- 对外发布时优先给复制安装和 `skill-installer` 两种方式
+- 不要在模板里写死本机绝对路径，统一使用 `/path/to/skills-repo/<skill-name>`
+
 ## Skills
 
 - `producing-animated-icons`
