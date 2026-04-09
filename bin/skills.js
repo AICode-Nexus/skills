@@ -23,6 +23,9 @@ function printHelp() {
 Examples:
   npx @aicode-nexus/skills list
   npx @aicode-nexus/skills install react-monorepo-init
+  npx @aicode-nexus/skills install react-monorepo-init --dest ~/.claude/skills
+  npx @aicode-nexus/skills install react-monorepo-init --dest ./.claude/skills
+  npx @aicode-nexus/skills install react-monorepo-init --dest ./tools/agent-skills
   npx @aicode-nexus/skills install react-monorepo-init codex-switch-snapshot
   npx @aicode-nexus/skills install --all
 `);
@@ -132,7 +135,7 @@ function installSkills(skills, options) {
   }
 
   const summaryPrefix = options.dryRun ? 'Dry-run complete.' : 'Installation complete.';
-  console.log(`${summaryPrefix} Restart Codex to pick up new skills.`);
+  console.log(`${summaryPrefix} Restart your AI coding tool to pick up new skills.`);
 }
 
 function listSkills(skills) {

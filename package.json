@@ -1,7 +1,7 @@
 {
   "name": "@aicode-nexus/skills",
   "version": "0.1.0",
-  "description": "Install Codex skills from the AICode Nexus skills hub.",
+  "description": "Reusable agent skills for Codex, Claude Code, and local repos.",
   "author": "AICode Nexus",
   "license": "MIT",
   "type": "module",
@@ -17,7 +17,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "bin": "bin/skills.js",
+  "bin": {
+    "skills": "bin/skills.js"
+  },
   "files": [
     "bin",
     "manifest",
@@ -39,6 +41,8 @@
     "node": ">=20"
   },
   "keywords": [
+    "agents",
+    "claude-code",
     "codex",
     "skills",
     "cli",

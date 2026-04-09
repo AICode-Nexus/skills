@@ -32,6 +32,7 @@ test('install copies a requested skill into the target directory', () => {
   assert.equal(existsSync(join(targetRoot, 'react-monorepo-init', 'SKILL.md')), true);
   const skillText = readFileSync(join(targetRoot, 'react-monorepo-init', 'SKILL.md'), 'utf8');
   assert.match(skillText, /name: react-monorepo-init/);
+  assert.match(result.stdout, /Restart your AI coding tool to pick up new skills\./);
 });
 
 test('install fails if the destination already exists without --force', () => {
@@ -79,6 +80,7 @@ test('install --dry-run reports actions without writing files', () => {
 
   assert.equal(result.status, 0, result.stderr);
   assert.match(result.stdout, /dry-run/i);
+  assert.match(result.stdout, /Restart your AI coding tool to pick up new skills\./);
   assert.equal(existsSync(join(targetRoot, 'react-monorepo-init')), false);
 });
 
