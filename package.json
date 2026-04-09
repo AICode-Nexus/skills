@@ -2,11 +2,21 @@
   "name": "@aicode-nexus/skills",
   "version": "0.1.0",
   "description": "Install Codex skills from the AICode Nexus skills hub.",
+  "author": "AICode Nexus",
   "license": "MIT",
   "type": "module",
-  "bin": {
-    "skills": "./bin/skills.js"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AICode-Nexus/skills.git"
   },
+  "homepage": "https://github.com/AICode-Nexus/skills#readme",
+  "bugs": {
+    "url": "https://github.com/AICode-Nexus/skills/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": "bin/skills.js",
   "files": [
     "bin",
     "manifest",
@@ -19,7 +29,9 @@
     "react-monorepo-init"
   ],
   "scripts": {
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "pack:check": "npm pack --json",
+    "publish:dry-run": "npm publish --dry-run"
   },
   "engines": {
     "node": ">=20"

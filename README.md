@@ -55,6 +55,77 @@ npx . list
 npx . install react-monorepo-init --dry-run
 ```
 
+## npm 发布流程
+
+如果你准备把这个安装器真正发布出去，最小流程如下。
+
+### 1. 本地校验
+
+```bash
+npm test
+npm run pack:check
+npm run publish:dry-run
+```
+
+建议至少确认三件事：
+
+- CLI 测试全部通过
+- `npm pack` 产物里包含 `bin/`、`manifest/` 和各个 skill
+- tarball 体积没有意外膨胀
+
+### 2. 登录并确认 npm 身份
+
+```bash
+npm login
+npm whoami
+```
+
+如果这是第一次发布 `@aicode-nexus/*` scope，还需要确认当前 npm 账号对这个 scope 有发布权限。
+
+### 3. 调整版本号
+
+```bash
+npm version patch
+```
+
+如果是功能升级，用 `minor`；如果是破坏性变更，用 `major`。
+
+### 4. 正式发布
+
+```bash
+npm publish
+```
+
+这个仓库已经在 `package.json` 里设置了：
+
+- `publishConfig.access=public`
+- `repository`
+- `homepage`
+- `bugs`
+
+所以对公开 scoped package 来说，正常直接发布即可。
+
+### 5. 发布后验证
+
+```bash
+npx @aicode-nexus/skills@latest list
+npx @aicode-nexus/skills@latest install react-monorepo-init --dry-run
+```
+
+建议再做一次真实安装验证：
+
+```bash
+tmpdir=$(mktemp -d)
+npx @aicode-nexus/skills@latest install react-monorepo-init --dest "$tmpdir"
+ls "$tmpdir/react-monorepo-init"
+```
+
+### 发布说明
+
+- 发布成功后，README 里的 `npx @aicode-nexus/skills ...` 才是对外真实可用命令
+- 在发布之前，仓库内可用的是 `npx . ...`
+- 如果发布失败，先检查 npm scope 权限、包名占用情况，以及是否已经登录正确账号
+
 ## 手动安装方式
 
 如果 npm 包还没有发布，或者你想直接从仓库本地安装，也可以继续使用下面这些方式。
