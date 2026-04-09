@@ -77,9 +77,58 @@ description: Use when creating a new React web app, initializing a Vite frontend
 - `references/quality-gates.md`
 - `references/optional-addons.md`
 
-完成后给用户的总结要包含：
+## Output Summary Format
+
+完成后给用户的总结固定按这个顺序输出，避免遗漏关键信息：
 
 - 创建了哪些核心目录与包
 - 是否启用了 addon
 - 运行了哪些验证命令，哪些已通过
 - 如果还没装依赖或浏览器，明确写出下一步命令
+
+建议直接使用下面的结构：
+
+```md
+已在 `<target_dir>` 初始化 `<project_name>`。
+
+- Scope: `<scope>`
+- Addons: `<addons-or-none>`
+- Base strategy: `create-vite` | `asset-only`
+
+核心产物：
+- `apps/web`
+- `packages/ui`
+- `packages/api-client`
+- `packages/shared`
+- `packages/hooks`
+- `packages/theme`
+- `packages/config-eslint`
+- `packages/config-typescript`
+- `packages/config-tailwind`
+- `packages/config-vitest`
+
+已执行校验：
+- `pnpm install`：passed | skipped
+- `python scripts/verify_scaffold.py --target-dir <dir>`：passed | failed
+- `pnpm lint`：passed | skipped
+- `pnpm typecheck`：passed | skipped
+- `pnpm test`：passed | skipped
+- `pnpm --filter <scope>/web test:e2e`：passed | skipped
+
+后续动作：
+- `<next-step-1>`
+- `<next-step-2>`
+```
+
+如果用户只是让你“创建项目”但当前环境没有实际落盘，也要明确区分“已生成”与“建议执行”：
+
+- 已生成：只在你真的运行了脚本并写入目录时使用
+- 建议执行：当你只给出命令、方案或模板时使用
+
+## Example Trigger
+
+以下请求都应该触发这个 skill：
+
+- `用 $react-monorepo-init 在 ~/work/demo-web 创建一个标准 React monorepo，项目名叫 demo-web，scope 用 @acme，先不开 addons。`
+- `用 $react-monorepo-init 在 ~/work/demo-web 创建项目，项目名 demo-web，scope @acme，开启 ci,pwa,i18n。`
+- `Use $react-monorepo-init to create a standard React monorepo in ~/work/demo-web with project name demo-web, scope @acme, and no addons.`
