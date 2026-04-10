@@ -1,0 +1,54 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#171918"/>
+      <stop offset="100%" stop-color="#242826"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="760" rx="30" fill="#202524" stroke="#394140" stroke-width="2" filter="url(#softShadow)"/>
+  <rect x="70" y="70" width="1060" height="76" rx="30" fill="#232928"/>
+  <circle cx="112" cy="108" r="7" fill="#ff8d5c"/>
+  <circle cx="138" cy="108" r="7" fill="#ffd166"/>
+  <circle cx="164" cy="108" r="7" fill="#41c7a4"/>
+  <text x="205" y="116" fill="#d9e1e4" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">generated project structure</text>
+
+  <text x="110" y="190" fill="#f7f2eb" font-size="42" font-weight="700" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">跑完之后，你拿到的不是一个页面</text>
+  <text x="110" y="242" fill="#f7f2eb" font-size="42" font-weight="700" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">而是一套像样的前端项目</text>
+
+  <text x="110" y="320" fill="#d9e1e4" font-size="28" font-family="Menlo, Monaco, Consolas, monospace">demo-web/</text>
+  <text x="150" y="370" fill="#ffb38f" font-size="26" font-family="Menlo, Monaco, Consolas, monospace">├─ apps/</text>
+  <text x="204" y="410" fill="#ffb38f" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">└─ web/</text>
+
+  <text x="150" y="470" fill="#93e7cf" font-size="26" font-family="Menlo, Monaco, Consolas, monospace">├─ packages/</text>
+  <text x="204" y="510" fill="#93e7cf" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">├─ ui/</text>
+  <text x="204" y="544" fill="#93e7cf" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">├─ api-client/</text>
+  <text x="204" y="578" fill="#93e7cf" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">├─ shared/</text>
+  <text x="204" y="612" fill="#93e7cf" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">├─ hooks/</text>
+  <text x="204" y="646" fill="#93e7cf" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">├─ theme/</text>
+  <text x="204" y="680" fill="#93e7cf" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">├─ config-eslint/</text>
+  <text x="204" y="714" fill="#93e7cf" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">├─ config-typescript/</text>
+  <text x="204" y="748" fill="#93e7cf" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">├─ config-tailwind/</text>
+  <text x="204" y="782" fill="#93e7cf" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">└─ config-vitest/</text>
+
+  <rect x="650" y="294" width="392" height="136" rx="18" fill="#171b1b" stroke="#ff8d5c" stroke-width="2"/>
+  <text x="678" y="338" fill="#ffb38f" font-size="24" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">对非研发角色</text>
+  <text x="678" y="376" fill="#dfe6e8" font-size="20" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">这看起来已经像一个</text>
+  <text x="678" y="406" fill="#dfe6e8" font-size="20" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">能继续推进、能继续协作的项目</text>
+
+  <rect x="650" y="454" width="392" height="176" rx="18" fill="#171b1b" stroke="#41c7a4" stroke-width="2"/>
+  <text x="678" y="500" fill="#93e7cf" font-size="24" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">对前端同学</text>
+  <text x="678" y="538" fill="#dfe6e8" font-size="20" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">这不是玩具脚手架</text>
+  <text x="678" y="568" fill="#dfe6e8" font-size="20" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">它已经预留了协作分层</text>
+  <text x="678" y="598" fill="#dfe6e8" font-size="20" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">配置抽离与质量入口</text>
+
+  <rect x="650" y="646" width="392" height="146" rx="18" fill="#171b1b" stroke="#f0c76b" stroke-width="2"/>
+  <text x="678" y="690" fill="#f6db9d" font-size="24" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">根目录信号</text>
+  <text x="678" y="724" fill="#dfe6e8" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">AGENTS.md   DESIGN.md</text>
+  <text x="678" y="752" fill="#dfe6e8" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">README.md   CHANGELOG.md</text>
+  <text x="678" y="780" fill="#dfe6e8" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">.changeset   .husky</text>
+</svg>

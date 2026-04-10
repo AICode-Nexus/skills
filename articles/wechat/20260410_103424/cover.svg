@@ -1,0 +1,106 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141617"/>
+      <stop offset="100%" stop-color="#1e2224"/>
+    </linearGradient>
+    <linearGradient id="accentA" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff8d5c"/>
+      <stop offset="100%" stop-color="#ffd166"/>
+    </linearGradient>
+    <linearGradient id="accentB" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#41c7a4"/>
+      <stop offset="100%" stop-color="#8ce99a"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="24" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1410" cy="110" r="180" fill="#ff8d5c" opacity="0.08"/>
+  <circle cx="150" cy="820" r="220" fill="#41c7a4" opacity="0.07"/>
+  <path d="M0 760 C 280 700, 440 820, 760 770 S 1260 680, 1600 760" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="2"/>
+  <path d="M0 790 C 280 730, 440 850, 760 800 S 1260 710, 1600 790" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="2"/>
+
+  <g transform="translate(92 54)">
+    <rect x="0" y="0" width="194" height="40" rx="20" fill="#262b2e"/>
+    <circle cx="24" cy="19" r="6" fill="#41c7a4"/>
+    <text x="40" y="26" fill="#d9e1e4" font-size="20" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">AICode Nexus</text>
+  </g>
+
+  <g transform="translate(92 182)">
+    <text x="0" y="0" fill="#f7f2eb" font-size="70" font-weight="700" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">不会前端</text>
+    <text x="0" y="90" fill="#f7f2eb" font-size="70" font-weight="700" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">也能一键起</text>
+    <text x="0" y="180" fill="#f7f2eb" font-size="70" font-weight="700" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">专业</text>
+    <text x="184" y="180" fill="#ffd89a" font-size="70" font-weight="700" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">React</text>
+    <text x="430" y="180" fill="#f7f2eb" font-size="70" font-weight="700" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">项目</text>
+
+    <rect x="0" y="230" width="402" height="4" rx="2" fill="url(#accentA)"/>
+
+    <rect x="0" y="270" width="204" height="34" rx="17" fill="#1f2426" stroke="#343c40" stroke-width="1.5"/>
+    <text x="18" y="293" fill="#dce4e6" font-size="19" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">react-monorepo-init</text>
+
+    <text x="0" y="344" fill="#dce4e6" font-size="24" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">让非研发角色也能和 AI agent 一起</text>
+    <text x="0" y="380" fill="#aeb7bb" font-size="23" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">启动标准前端基线</text>
+
+    <rect x="0" y="426" width="104" height="40" rx="20" fill="#1f2426" stroke="#ff8d5c" stroke-width="2"/>
+    <text x="30" y="453" fill="#ffd7c1" font-size="21" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">demo</text>
+
+    <rect x="122" y="426" width="92" height="40" rx="20" fill="#1f2426" stroke="#ffd166" stroke-width="2"/>
+    <text x="154" y="453" fill="#ffe4a3" font-size="21" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">MVP</text>
+
+    <rect x="232" y="426" width="186" height="40" rx="20" fill="#1f2426" stroke="#41c7a4" stroke-width="2"/>
+    <text x="267" y="453" fill="#b8f0de" font-size="21" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">internal tools</text>
+  </g>
+
+  <g transform="translate(905 126)" filter="url(#shadow)">
+    <rect x="0" y="0" width="540" height="630" rx="24" fill="#22272a" stroke="#3a4347" stroke-width="2"/>
+    <rect x="0" y="0" width="540" height="70" rx="24" fill="#242a2d"/>
+    <circle cx="34" cy="35" r="7" fill="#ff8d5c"/>
+    <circle cx="60" cy="35" r="7" fill="#ffd166"/>
+    <circle cx="86" cy="35" r="7" fill="#41c7a4"/>
+    <text x="120" y="43" fill="#cfd7da" font-size="24" font-family="Menlo, Monaco, Consolas, monospace">demo-web</text>
+
+    <rect x="42" y="108" width="210" height="124" rx="18" fill="#151819" stroke="#ff8d5c" stroke-width="2"/>
+    <text x="64" y="148" fill="#ffb38f" font-size="22" font-family="Menlo, Monaco, Consolas, monospace">apps/web</text>
+    <text x="64" y="185" fill="#d9e1e4" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">Vite</text>
+    <text x="122" y="185" fill="#768287" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">+</text>
+    <text x="142" y="185" fill="#d9e1e4" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">Router</text>
+    <text x="64" y="214" fill="#d9e1e4" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">Query</text>
+    <text x="130" y="214" fill="#768287" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">+</text>
+    <text x="150" y="214" fill="#d9e1e4" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">Zustand</text>
+
+    <rect x="288" y="108" width="210" height="84" rx="18" fill="#151819" stroke="#41c7a4" stroke-width="2"/>
+    <text x="310" y="146" fill="#93e7cf" font-size="22" font-family="Menlo, Monaco, Consolas, monospace">packages/ui</text>
+    <text x="310" y="176" fill="#d9e1e4" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">shared components</text>
+
+    <rect x="288" y="206" width="210" height="84" rx="18" fill="#151819" stroke="#f0c76b" stroke-width="2"/>
+    <text x="310" y="244" fill="#f6db9d" font-size="22" font-family="Menlo, Monaco, Consolas, monospace">api-client</text>
+    <text x="310" y="274" fill="#d9e1e4" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">typed requests</text>
+
+    <rect x="42" y="274" width="210" height="84" rx="18" fill="#151819" stroke="#41c7a4" stroke-width="2"/>
+    <text x="64" y="312" fill="#93e7cf" font-size="22" font-family="Menlo, Monaco, Consolas, monospace">theme</text>
+    <text x="64" y="342" fill="#d9e1e4" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">Tailwind v4 tokens</text>
+
+    <rect x="42" y="372" width="210" height="84" rx="18" fill="#151819" stroke="#f0c76b" stroke-width="2"/>
+    <text x="64" y="410" fill="#f6db9d" font-size="22" font-family="Menlo, Monaco, Consolas, monospace">hooks / shared</text>
+    <text x="64" y="440" fill="#d9e1e4" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">reusable logic</text>
+
+    <rect x="288" y="320" width="210" height="136" rx="18" fill="#151819" stroke="#ff8d5c" stroke-width="2"/>
+    <text x="310" y="358" fill="#ffb38f" font-size="22" font-family="Menlo, Monaco, Consolas, monospace">config-*</text>
+    <text x="310" y="390" fill="#d9e1e4" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">eslint</text>
+    <text x="310" y="419" fill="#d9e1e4" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">typescript</text>
+    <text x="310" y="448" fill="#d9e1e4" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">tailwind</text>
+
+    <rect x="42" y="508" width="456" height="80" rx="18" fill="#171b1c" stroke="#3b4448" stroke-width="2"/>
+    <text x="64" y="548" fill="#d9e1e4" font-size="21" font-family="Menlo, Monaco, Consolas, monospace">AGENTS.md   DESIGN.md   README.md</text>
+    <text x="64" y="577" fill="#aeb7bb" font-size="18" font-family="Menlo, Monaco, Consolas, monospace">CHANGELOG.md   .changeset   .husky</text>
+  </g>
+
+  <g transform="translate(92 714)">
+    <rect x="0" y="0" width="500" height="102" rx="20" fill="#1f2426" stroke="#343c40" stroke-width="2"/>
+    <text x="28" y="42" fill="#dfe6e8" font-size="23" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">不是先让 AI 写页面</text>
+    <text x="28" y="74" fill="#dfe6e8" font-size="23" font-family="Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">而是先给 AI 一个正确的项目起点</text>
+  </g>
+</svg>
